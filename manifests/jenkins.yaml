@@ -91,6 +91,9 @@ metadata:
   labels:
     app: jenkins
 spec:
+  selector:
+    matchLabels:
+      app: jenkins
   strategy:
     type: Recreate
   template:
