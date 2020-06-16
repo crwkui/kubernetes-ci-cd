@@ -64,7 +64,7 @@ spec:
   selector:
     app: jenkins
     tier: jenkins
-  type: NodePort
+  type: LoadBalancer
 
 ---
 
@@ -88,7 +88,7 @@ spec:
     spec:
       serviceAccountName: jenkins
       initContainers:
-      - image: lachlanevenson/k8s-kubectl:v1.11.2
+      - image: lachlanevenson/k8s-kubectl:v1.18.3
         name: kubectl-config
         command:
         - "/bin/sh"
