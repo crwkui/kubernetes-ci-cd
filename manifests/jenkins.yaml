@@ -110,7 +110,7 @@ spec:
           mountPath: "/kubectl-config-context.sh"
           subPath: "kubectl-config-context.sh"
       containers:
-      - image: 192.168.50.39:32772/jenkins:latest
+      - image: 192.168.50.39:32772/jenkins:2.222
         name: jenkins
         envFrom:
         - configMapRef:
