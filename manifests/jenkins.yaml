@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: jenkins-proxy-config
 data:
-  HTTPS_PROXY: http://192.168.50.76:10809
-  HTTP_PROXY: http://192.168.50.76:10809
+  http_proxy: http://192.168.50.76:10809
+  https_proxy: http://192.168.50.76:10809
 ---
 
 kind: PersistentVolumeClaim
