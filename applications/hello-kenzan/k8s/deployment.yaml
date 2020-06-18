@@ -20,6 +20,7 @@ metadata:
   name: hello-kenzan
   labels:
     app: hello-kenzan
+    tier: hello-kenzan
 spec:
   selector:
     matchLabels:
