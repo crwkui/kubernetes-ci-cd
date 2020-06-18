@@ -1,13 +1,9 @@
 node {
-
-
 	environment {
 		registry = "http://192.168.50.39:32773/"
 		registryCredential = 'dockerReg'
 		dockerImage = ''
-	}
-	agent any
-	
+	}	
     checkout scm
 
     env.DOCKER_API_VERSION="1.23"
