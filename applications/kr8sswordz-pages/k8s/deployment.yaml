@@ -14,13 +14,16 @@ spec:
   type: NodePort
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kr8sswordz
   labels:
     app: kr8sswordz
 spec:
+  selector:
+    matchLabels:
+      app: kr8sswordz
   strategy:
     type: Recreate
   template:
@@ -37,7 +40,7 @@ spec:
         - containerPort: 3002
           name: kr8sswordz
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
  name: kr8sswordz
