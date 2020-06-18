@@ -17,20 +17,16 @@ node {
     env.BUILDIMG=imageName
 
 	stage('Building image') {
-      steps{
         script {
           dockerImage = docker.build(registry + "${appName}:${tag}", "-f applications/hello-kenzan/Dockerfile")
         }
-      }
     }
     stage('Deploy Image') {
-      steps{
         script {
           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
           }
         }
-      }
     }
 
     stage "Deploy"
