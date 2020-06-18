@@ -1,6 +1,6 @@
 node {
 	environment {
-		 = "http://192.168.50.39:32773/"
+		registry = "http://192.168.50.39:32773/"
 		registryCredential = 'dockerReg'
 		dockerImage = ''
 	}	
