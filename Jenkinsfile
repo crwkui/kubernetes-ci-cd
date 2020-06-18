@@ -1,6 +1,6 @@
 node {
 	environment {
-		registry = "http://192.168.50.39:32773/"
+		 = "http://192.168.50.39:32773/"
 		registryCredential = 'dockerReg'
 		dockerImage = ''
 	}	
@@ -23,7 +23,7 @@ node {
     }
     stage('Deploy Image') {
         script {
-          docker.withRegistry( '', 'dockerReg' ) {
+          docker.withRegistry( registry, registryCredential ) {
             dockerImage.push()
           }
         }
