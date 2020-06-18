@@ -33,7 +33,7 @@ spec:
         tier: kr8sswordz
     spec:
       containers:
-      - image: 127.0.0.1:30400/kr8sswordz:$BUILD_TAG
+      - image: 192.168.50.39:32772/kr8sswordz:$BUILD_TAG
         name: kr8sswordz
         imagePullPolicy: Always
         ports:
