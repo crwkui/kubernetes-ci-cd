@@ -17,6 +17,8 @@ node {
     env.BUILDIMG=imageName
 
 	stage('Building image') {
+		pwd
+	
         script {
           dockerImage = docker.build("${imageName}", "-f applications/hello-kenzan/Dockerfile ./applications/jenkins")
         }
