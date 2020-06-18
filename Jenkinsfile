@@ -18,12 +18,12 @@ node {
 
 	stage('Building image') {
         script {
-          dockerImage = docker.build(registry + "${appName}:${tag}", "-f applications/hello-kenzan/Dockerfile")
+          dockerImage = docker.build("${imageName}", "-f applications/hello-kenzan/Dockerfile")
         }
     }
     stage('Deploy Image') {
         script {
-          docker.withRegistry( '', registryCredential ) {
+          docker.withRegistry( '', 'dockerReg' ) {
             dockerImage.push()
           }
         }
