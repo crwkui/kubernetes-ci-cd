@@ -1,5 +1,13 @@
 node {
 
+
+	environment {
+		registry = "http://192.168.50.39:32773/"
+		registryCredential = 'dockerReg'
+		dockerImage = ''
+	}
+	agent any
+	
     checkout scm
 
     env.DOCKER_API_VERSION="1.23"
@@ -12,13 +20,22 @@ node {
     imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
 
-    stage "Build"
-    
-        sh "docker build -t ${imageName} -f applications/hello-kenzan/Dockerfile applications/hello-kenzan"
-    
-    stage "Push"
-
-        sh "docker push ${imageName}"
+	stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build(registry + "${appName}:${tag}", "-f applications/hello-kenzan/Dockerfile")
+        }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
 
     stage "Deploy"
 
