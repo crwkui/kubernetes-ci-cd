@@ -18,7 +18,7 @@ node {
 
 	stage('Building image') {
         script {
-          dockerImage = docker.build("${imageName}", "-f applications/hello-kenzan/Dockerfile")
+          dockerImage = docker.build("${imageName}", "-f applications/hello-kenzan/Dockerfile applications/jenkins")
         }
     }
     stage('Deploy Image') {
