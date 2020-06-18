@@ -14,6 +14,7 @@ node {
     registryHost = "192.168.50.39:32773/"
     imageName = "${registryHost}${appName}:${tag}"
     env.BUILDIMG=imageName
+	env.BUILD_C_TAG=tag
 
 	stage('Building image') {
         script {
